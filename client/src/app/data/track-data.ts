@@ -7,11 +7,11 @@ export class TrackData extends ResourceData {
 	artists:ArtistData[];
 	duration_ms:number;
 
-	constructor(objectModel:{}) {
+	constructor(objectModel:any) {
 		super(objectModel);
 		this.category = "track";
 
-		this.artists = objectModel['artists'].map((artist) => {
+		this.artists = objectModel['artists'].map((artist:any) => {
 			return new ArtistData(artist);
 		});
 
@@ -28,4 +28,5 @@ export class TrackData extends ResourceData {
 		var seconds:number = Math.trunc((this.duration_ms) / 1000 % 60); // 100ms/sec, get remainder
 		return minutes.toString() + ':' + seconds.toString().padStart(2, '0');
 	}
+
 }

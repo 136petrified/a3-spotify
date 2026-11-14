@@ -3,7 +3,7 @@ export class ProfileData {
 	spotifyProfile:string;
 	imageURL:string;
 
-	constructor(objectModel:{}) {
+	constructor(objectModel:any) {
 		this.name = objectModel['display_name'];
 		this.spotifyProfile = objectModel['external_urls']['spotify'];
 		if(objectModel['images'].length > 0) {

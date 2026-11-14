@@ -8,7 +8,7 @@ export abstract class ResourceData {
 	url:string;
 	popularity:Popularity;
 
-	constructor(objectModel:{}) {
+	constructor(objectModel:any) {
 		this.name = objectModel['name'];
 		this.id = objectModel['id'];
 		if(objectModel['images'] && objectModel['images'].length > 0) {
@@ -27,4 +27,8 @@ export abstract class ResourceData {
 			this.url = objectModel['external_urls']['spotify'];
 		}
 	}
+
+    get local() {
+     return '/' + this.category + '/' + encodeURIComponent(this.id);
+    }
 }

@@ -5,14 +5,15 @@ export class AlbumData extends ResourceData {
 	genres:string[];
 	artists:ArtistData[];
 
-	constructor(objectModel:{}) {
+	constructor(objectModel:any) {
 		super(objectModel);
 		this.category="album";
 
 		this.genres = objectModel['genres'];
 
-		this.artists = objectModel['artists'].map((artist) => {
+		this.artists = objectModel['artists'].map((artist:any) => {
 			return new ArtistData(artist);
 		});
 	}
+
 }

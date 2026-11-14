@@ -4,7 +4,7 @@ export class ArtistData extends ResourceData {
 	genres:string[];
 	followers:number;
 
-	constructor(objectModel:{}) {
+	constructor(objectModel:any) {
 		super(objectModel);
 		this.category = 'artist';
 		this.genres = objectModel['genres'];
@@ -16,4 +16,15 @@ export class ArtistData extends ResourceData {
 	get followersStr() {
 		return this.followers.toLocaleString();
 	}
+
+    get commaFormattedFollowers() {
+        let s:string = this.followers.toString();
+        for (let i = s.length - 1; i >= 0; i -= 3) {
+            if (i != s.length - 1) {
+                s = s.substring(0, i + 1)+ ',' + s.substring(i, s.length);
+            }
+        }
+
+        return s;
+    }
 }

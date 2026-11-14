@@ -11,7 +11,7 @@ export class CarouselComponent implements OnInit {
 	@Input() carouselId:string;
 	@Input() resources:ResourceData[];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
